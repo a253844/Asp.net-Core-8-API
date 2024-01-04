@@ -1,0 +1,17 @@
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.csproj.AssemblyReference.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.AssemblyInfoInputs.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.AssemblyInfo.cs
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.csproj.CoreCompileInputs.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Service.deps.json
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Service.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Service.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Common.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Repository.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Common.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\bin\Debug\net8.0\BlockAction.Repository.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.csproj.CopyComplete
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\refint\BlockAction.Service.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\BlockAction.Service.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Service\obj\Debug\net8.0\ref\BlockAction.Service.dll

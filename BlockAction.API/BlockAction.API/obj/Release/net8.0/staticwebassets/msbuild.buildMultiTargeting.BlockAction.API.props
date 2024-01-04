@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BlockAction.API.props" />
+</Project>

@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlockAction.API</name>
+    </assembly>
+    <members>
+        <member name="T:BlockAction.API.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.#ctor(BlockAction.Service.Interface.IUserService,Microsoft.Extensions.Logging.ILogger{BlockAction.API.Controllers.UserController})">
+            <summary>
+            建構式
+            </summary>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.GetList(BlockAction.API.Parameter.UserSearchParameter)">
+            <summary>
+            查詢用户列表
+            </summary>
+            <remarks>查询的条件未找到用户，则 Responses-data 回传空阵列</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.Get(System.Int32)">
+            <summary>
+            查詢用户
+            </summary>
+            <remarks></remarks>
+            <returns></returns>
+            <response code="200">回傳對應的用户</response>
+            <response code="404">找不到該編號的用户</response>          
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.Insert(BlockAction.API.Parameter.UserParameter)">
+            <summary>
+            新增用户
+            </summary>
+            <remarks></remarks>
+            <param name="parameter">用户參數</param>
+            <returns></returns>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.Update(System.Int32,BlockAction.API.Parameter.UserParameter)">
+            <summary>
+            更新用户
+            </summary>
+            <remarks></remarks>
+            <param name="id">用户編號</param>
+            <param name="parameter">用户參數</param>
+            <returns></returns>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            刪除用户
+            </summary>
+            <remarks></remarks>
+            <param name="id">用户編號</param>
+            <returns></returns>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.GetFundDetialList(BlockAction.API.Parameter.UserFundDetailSearchParameter)">
+            <summary>
+            查詢用户资金明细列表
+            </summary>
+            <remarks></remarks>
+            <returns></returns>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.InsertFundDetial(BlockAction.API.Parameter.UserFundDetailParameter)">
+            <summary>
+            新增用户資金明細
+            </summary>
+            <remarks></remarks>
+            <param name="parameter">用户參數</param>
+            <returns></returns>
+        </member>
+        <member name="M:BlockAction.API.Controllers.UserController.GetError">
+            <summary>
+            错误讯息测试
+            </summary>
+            <remarks>测试发生Exception后的回传讯息</remarks>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:BlockAction.API.Model.UserViewModel">
+            <summary>
+            用户基本资料
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserViewModel.Id">
+            <summary>
+            用户編號
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserViewModel.Name">
+            <summary>
+            用户名稱
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserViewModel.Description">
+            <summary>
+            用户描述
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserViewModel.Money">
+            <summary>
+            余额
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserViewModel.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserViewModel.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="T:BlockAction.API.Model.UserFundDetailViewModel">
+            <summary>
+            用户資金明細
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.UserId">
+            <summary>
+            用户标号
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.AccountType">
+            <summary>
+            账户类型
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.BeforeBalance">
+            <summary>
+            金额变动前
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.AfterBalance">
+            <summary>
+            金额变动后
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.Summary">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.OperatorUserId">
+            <summary>
+            操作人员
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.UserFundDetailViewModel.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="T:BlockAction.API.Model.WebTool.ServerResponseInfo">
+            <summary>
+            服务端回复对象
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.WebTool.ServerResponseInfo.code">
+            <summary>
+            回复结果
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.WebTool.ServerResponseInfo.message">
+            <summary>
+            回复消息
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.WebTool.ServerResponseInfo.status">
+            <summary>
+            公共数据
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Model.WebTool.ServerResponseInfo.data">
+            <summary>
+            业务数据
+            </summary>
+        </member>
+        <member name="M:BlockAction.API.Model.WebTool.GetResonseInfo(System.Object,System.Int32,System.String,System.String)">
+            <summary>
+            获取回复对象
+            </summary>
+        </member>
+        <member name="T:BlockAction.API.Parameter.UserParameter">
+            <summary>
+            用户基本资料搜尋參數
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserParameter.Name">
+            <summary>
+            用户名稱
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserParameter.Description">
+            <summary>
+            用户描述
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserParameter.Money">
+            <summary>
+            余额
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserParameter.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserParameter.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="T:BlockAction.API.Parameter.UserSearchParameter">
+            <summary>
+            用户搜尋參數
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserSearchParameter.Name">
+            <summary>
+            用户名稱
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserSearchParameter.MinAge">
+            <summary>
+            年龄下限
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserSearchParameter.MaxAge">
+            <summary>
+            年龄上限
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserSearchParameter.MinMoney">
+            <summary>
+            余额下限
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserSearchParameter.MaxMoney">
+            <summary>
+            余额上限
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserSearchParameter.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:BlockAction.API.Parameter.UserFundDetailParameter">
+            <summary>
+            用户资金明细參數
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailParameter.UserId">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailParameter.AccountType">
+            <summary>
+            账户类型
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailParameter.Money">
+            <summary>
+            金额变动后
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailParameter.Summary">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailParameter.OperatorUserId">
+            <summary>
+            操作人员
+            </summary>
+        </member>
+        <member name="T:BlockAction.API.Parameter.UserFundDetailSearchParameter">
+            <summary>
+            用户资金明细搜尋參數
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailSearchParameter.Id">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailSearchParameter.Name">
+            <summary>
+            用户名稱
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailSearchParameter.AccountType">
+            <summary>
+            账户类型
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailSearchParameter.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailSearchParameter.EndtTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:BlockAction.API.Parameter.UserFundDetailSearchParameter.Summary">
+            <summary>
+            描述
+            </summary>
+        </member>
+    </members>
+</doc>

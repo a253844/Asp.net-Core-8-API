@@ -1,0 +1,17 @@
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\bin\Release\net8.0\BlockAction.Repository.deps.json
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\bin\Release\net8.0\BlockAction.Repository.runtimeconfig.json
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\bin\Release\net8.0\BlockAction.Repository.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\bin\Release\net8.0\BlockAction.Repository.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\bin\Release\net8.0\BlockAction.Common.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\bin\Release\net8.0\BlockAction.Common.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.csproj.AssemblyReference.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.AssemblyInfoInputs.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.AssemblyInfo.cs
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.csproj.CoreCompileInputs.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.csproj.CopyComplete
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\refint\BlockAction.Repository.dll
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.pdb
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\BlockAction.Repository.genruntimeconfig.cache
+C:\Users\user\我的雲端硬碟\blockaction\BlockAction.API\BlockAction.Repository\obj\Release\net8.0\ref\BlockAction.Repository.dll
