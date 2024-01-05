@@ -30,7 +30,6 @@ namespace BlockAction.Repository.Implement
         /// <returns></returns>
         public IEnumerable<Userdatainfo> GetList(UserSearchCondition condition)
         {
-            _logger.LogInformation("--------------GET Repository.-----------------");
 
             var Userinfos = _db.Userdatainfos.AsQueryable();
 

@@ -68,7 +68,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddDbContext<DemodbContext>(sp =>
 {
-    sp.UseNpgsql(builder.Configuration.GetConnectionString("DemodbContext"));
+    sp.UseNpgsql(builder.Configuration.GetConnectionString("PGContext"));
 });
 
 #endregion
