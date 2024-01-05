@@ -21,10 +21,10 @@ namespace BlockAction.Repository.Implement
             this._logger = logger;
         }
 
-        #region 用户讯息
+        #region 用戶訊息
 
         /// <summary>
-        /// 查詢用户列表
+        /// 查詢使用者列表
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
@@ -39,12 +39,12 @@ namespace BlockAction.Repository.Implement
                 Userinfos = Userinfos.Where(p => p.Name == condition.Name);
             }
 
-            if(condition.MinMoney != null && condition.MaxMoney != null)
+            if (condition.MinMoney != null && condition.MaxMoney != null)
             {
                 Userinfos = Userinfos.Where(p => p.Money >= condition.MinMoney && p.Money <= condition.MaxMoney);
             }
 
-            if(condition.MinMoney != null && condition.MaxMoney != null)
+            if (condition.MinMoney != null && condition.MaxMoney != null)
             {
                 Userinfos = Userinfos.Where(p => p.Age >= condition.MinAge && p.Age <= condition.MaxAge);
             }
@@ -58,7 +58,7 @@ namespace BlockAction.Repository.Implement
         }
 
         /// <summary>
-        /// 查詢用户
+        /// 查詢用戶
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -66,7 +66,7 @@ namespace BlockAction.Repository.Implement
         {
             try
             {
-                var Userinfos = _db.Userdatainfos.Where(p => p.Id == id ).OrderBy(p => p.Id).First();
+                var Userinfos = _db.Userdatainfos.Where(p => p.Id == id).OrderBy(p => p.Id).First();
 
                 return Userinfos;
             }
@@ -77,7 +77,7 @@ namespace BlockAction.Repository.Implement
         }
 
         /// <summary>
-        /// 新增用户
+        /// 新增用戶
         /// </summary>
         /// <param name="condition">參數</param>
         /// <returns></returns>
@@ -106,9 +106,9 @@ namespace BlockAction.Repository.Implement
         }
 
         /// <summary>
-        /// 修改用户
+        /// 修改用戶
         /// </summary>
-        /// <param name="id">用户編號</param>
+        /// <param name="id">使用者編號</param>
         /// <param name="condition">參數</param>
         /// <returns></returns>
         public bool Update(int id, UserCondition condition)
@@ -116,7 +116,7 @@ namespace BlockAction.Repository.Implement
             var check = false;
             try
             {
-                // 写入前检查用户是否存在
+                // 寫入前檢查使用者是否存在
                 var user = _db.Userdatainfos.FirstOrDefault(p => p.Id == id);
                 if (user != null)
                 {
@@ -140,16 +140,16 @@ namespace BlockAction.Repository.Implement
         }
 
         /// <summary>
-        /// 刪除用户
+        /// 刪除用戶
         /// </summary>
-        /// <param name="id">用户編號</param>
+        /// <param name="id">使用者編號</param>
         /// <returns></returns>
         public bool Delete(int id)
         {
             var check = false;
             try
             {
-                // 写入前检查用户是否存在
+                // 寫入前檢查使用者是否存在
                 var user = _db.Userdatainfos.FirstOrDefault(p => p.Id == id);
                 if (user != null)
                 {
@@ -158,22 +158,22 @@ namespace BlockAction.Repository.Implement
 
                     check = true;
                 }
-               
+
                 return check;
             }
             catch (Exception ex)
             {
                 return check;
             }
-            
+
         }
 
         #endregion
 
-        #region 用户资金明细
+        #region 用戶資金明細
 
         /// <summary>
-        /// 用户资金明细
+        /// 用戶資金明細
         /// </summary>
         /// <param name="condition">參數</param>
         /// <returns></returns>
@@ -182,10 +182,10 @@ namespace BlockAction.Repository.Implement
             var check = false;
             try
             {
-                // 写入前检查用户是否存在
+                // 寫入前檢查使用者是否存在
                 var user = _db.Userdatainfos.FirstOrDefault(p => p.Id == condition.UserId);
 
-                if(user != null)
+                if (user != null)
                 {
                     var FundDetail = new Userfundetail
                     {
@@ -199,7 +199,7 @@ namespace BlockAction.Repository.Implement
                         UserName = user.Name
                     };
 
-                    // 更新帐变后，更新用户资讯金额
+                    // 更新帳變後，更新用戶資訊金額
                     user.Money = FundDetail.AfterBalance;
 
                     _db.Userfundetails.Add(FundDetail);
@@ -213,24 +213,24 @@ namespace BlockAction.Repository.Implement
             {
                 return check;
             }
-            
+
         }
 
         /// <summary>
-        /// 查詢用户资金明细列表
+        /// 查詢用戶資金明細列表
         /// </summary>
         /// <param name="condition"></param>
         /// <returns></returns>
         public IEnumerable<Userfundetail> GetFundDetialList(UserFundDetailSearchCondition condition)
         {
-            var Userinfos = _db.Userfundetails.Where(p => p.CreateTime >=  DateOnly.FromDateTime(condition.StartTime) && p.CreateTime <= DateOnly.FromDateTime(condition.EndtTime));
+            var Userinfos = _db.Userfundetails.Where(p => p.CreateTime >= DateOnly.FromDateTime(condition.StartTime) && p.CreateTime <= DateOnly.FromDateTime(condition.EndtTime));
 
             if (condition.Id != null)
             {
                 Userinfos = Userinfos.Where(p => p.UserId == condition.Id);
             }
 
-            if (!string.IsNullOrEmpty(condition.Name) )
+            if (!string.IsNullOrEmpty(condition.Name))
             {
                 Userinfos = Userinfos.Where(p => p.UserName.Contains(condition.Name));
             }

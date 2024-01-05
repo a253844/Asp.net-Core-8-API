@@ -40,7 +40,6 @@ namespace BlockAction.Service.Implement
         /// <returns></returns>
         public IEnumerable<UserResultModel> GetList(UserSearchInfo info)
         {
-            _logger.LogInformation("--------------GET Service.-----------------");
             var condition = this._mapper.Map<UserSearchInfo, UserSearchCondition>(info);
             var data = this._userRepository.GetList(condition);
 
@@ -102,7 +101,7 @@ namespace BlockAction.Service.Implement
 
         #endregion
 
-        #region 用户资金明细
+        #region 用戶資金明細
 
         /// <summary>
         /// 新增用户資金明細
@@ -116,7 +115,7 @@ namespace BlockAction.Service.Implement
         }
 
         /// <summary>
-        /// 查詢用户资金明细列表
+        /// 查詢用户資金明細列表
         /// </summary>
         /// <returns></returns>
         public IEnumerable<UserFundDetailResultModel> GetFundDetialList(UserFundDetailSearchInfo info)

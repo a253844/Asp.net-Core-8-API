@@ -1,73 +1,73 @@
 ﻿namespace BlockAction.API.Model
 {
     /// <summary>
-    /// 用户基本资料
+    /// 使用者基本資料
     /// </summary>
     public class UserViewModel
     {
         /// <summary>
-        /// 用户編號
+        /// 使用者編號
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 用户名稱
+        /// 使用者名稱
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// 用户描述
+        /// 使用者描述
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// 余额
+        /// 餘額
         /// </summary>
         public decimal Money { get; set; }
 
         /// <summary>
-        /// 标签
+        /// 標籤
         /// </summary>
         public string Tag { get; set; }
 
         /// <summary>
-        /// 年龄
+        /// 年齡
         /// </summary>
         public int Age { get; set; }
     }
 
     /// <summary>
-    /// 用户資金明細
+    /// 使用者資金明細
     /// </summary>
     public class UserFundDetailViewModel
     {
         /// <summary>
-        /// 编号
+        /// 編號
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// 用户标号
+        /// 使用者標號
         /// </summary>
         public int UserId { get; set; }
 
         /// <summary>
-        /// 账户类型
+        /// 帳戶類型
         /// </summary>
         public int AccountType { get; set; }
 
         /// <summary>
-        /// 金额变动前
+        /// 金額變動前
         /// </summary>
         public decimal BeforeBalance { get; set; }
 
         /// <summary>
-        /// 金额变动后
+        /// 金額變動後
         /// </summary>
         public decimal AfterBalance { get; set; }
 
         /// <summary>
-        /// 创建时间
+        /// 建立時間
         /// </summary>
         public DateOnly CreateTime { get; set; }
 
@@ -77,12 +77,12 @@
         public string Summary { get; set; }
 
         /// <summary>
-        /// 操作人员
+        /// 操作人員
         /// </summary>
         public int OperatorUserId { get; set; }
 
         /// <summary>
-        /// 用户名称
+        /// 使用者名稱
         /// </summary>
         public string UserName { get; set; }
     }

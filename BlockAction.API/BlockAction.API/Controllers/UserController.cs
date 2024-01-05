@@ -7,12 +7,10 @@ using BlockAction.Service.Dtos.Info;
 using BlockAction.Service.Dtos.ResultModel;
 using BlockAction.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
-using static BlockAction.API.Model.WebTool;
+using static BlockAction.API.Controllers.WebTool;
 
 namespace BlockAction.API.Controllers
 {
-    #region 用户资讯
-
     /// <summary>
     /// 用户管理
     /// </summary>
@@ -38,18 +36,18 @@ namespace BlockAction.API.Controllers
             this._logger = logger;
         }
 
+        #region 使用者訊息
+
         /// <summary>
-        /// 查詢用户列表
+        /// 查詢使用者列表
         /// </summary>
-        /// <remarks>查询的条件未找到用户，则 Responses-data 回传空阵列</remarks>
+        /// <remarks>查詢的條件如果找不到，則 Responses-data 回傳空陣列</remarks>
         /// <returns></returns>
         [HttpGet]
         [Produces("application/json")]
         [Route("api/[controller]")]
         public ServerResponseInfo GetList([FromQuery] UserSearchParameter parameter)
         {
-            _logger.LogInformation("--------------GET API.-----------------");
-
             var info = this._mapper.Map<
                 UserSearchParameter,
                 UserSearchInfo>(parameter);
@@ -64,12 +62,12 @@ namespace BlockAction.API.Controllers
         }
 
         /// <summary>
-        /// 查詢用户
+        /// 查詢用戶
         /// </summary>
         /// <remarks></remarks>
         /// <returns></returns>
-        /// <response code="200">回傳對應的用户</response>
-        /// <response code="404">找不到該編號的用户</response>          
+        /// <response code="200">回傳對應的使用者</response>
+        /// <response code="404">找不到該編號的使用者</response>
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(ServerResponseInfo), 200)]
@@ -80,7 +78,8 @@ namespace BlockAction.API.Controllers
 
             if (User is null)
             {
-                throw new Exception("查无此用户.");
+                Response.StatusCode = 404;
+                throw new Exception("查無此用戶.");
             }
 
             var result = this._mapper.Map<
@@ -91,10 +90,10 @@ namespace BlockAction.API.Controllers
         }
 
         /// <summary>
-        /// 新增用户
+        /// 新增用戶
         /// </summary>
         /// <remarks></remarks>
-        /// <param name="parameter">用户參數</param>
+        /// <param name="parameter">使用者參數</param>
         /// <returns></returns>
         [HttpPost]
         [Route("api/[controller]")]
@@ -107,17 +106,17 @@ namespace BlockAction.API.Controllers
             var isInsertSuccess = this._userService.Insert(info);
             if (!isInsertSuccess)
             {
-                throw new Exception("新增用户失败.");
+                throw new Exception("新增用戶失敗.");
             }
             return GetResonseInfo("");
         }
 
         /// <summary>
-        /// 更新用户
+        /// 更新用戶
         /// </summary>
         /// <remarks></remarks>
-        /// <param name="id">用户編號</param>
-        /// <param name="parameter">用户參數</param>
+        /// <param name="id">使用者編號</param>
+        /// <param name="parameter">使用者參數</param>
         /// <returns></returns>
         [HttpPut]
         [Route("api/[controller]/{id}")]
@@ -126,7 +125,7 @@ namespace BlockAction.API.Controllers
             var targetUser = this._userService.Get(id);
             if (targetUser is null)
             {
-                throw new Exception("查无此用户.");
+                throw new Exception("查無此用戶.");
             }
 
             var info = this._mapper.Map<
@@ -136,16 +135,16 @@ namespace BlockAction.API.Controllers
             var isUpdateSuccess = this._userService.Update(id, info);
             if (!isUpdateSuccess)
             {
-                throw new Exception("更新用户失败.");
+                throw new Exception("更新使用者失敗.");
             }
             return GetResonseInfo("");
         }
 
         /// <summary>
-        /// 刪除用户
+        /// 刪除用戶
         /// </summary>
         /// <remarks></remarks>
-        /// <param name="id">用户編號</param>
+        /// <param name="id">使用者編號</param>
         /// <returns></returns>
         [HttpDelete]
         [Route("api/[controller]/{id}")]
@@ -154,17 +153,17 @@ namespace BlockAction.API.Controllers
             var isDeleteSuccess = this._userService.Delete(id);
             if (!isDeleteSuccess)
             {
-                throw new Exception("删除用户失败.");
+                throw new Exception("刪除用戶失敗.");
             }
             return GetResonseInfo("");
         }
 
         #endregion
 
-        #region 用户资金明细
+        #region 用戶資金明細
 
         /// <summary>
-        /// 查詢用户资金明细列表
+        /// 查詢用戶資金明細列表
         /// </summary>
         /// <remarks></remarks>
         /// <returns></returns>
@@ -187,10 +186,10 @@ namespace BlockAction.API.Controllers
         }
 
         /// <summary>
-        /// 新增用户資金明細
+        /// 新增使用者資金明細
         /// </summary>
         /// <remarks></remarks>
-        /// <param name="parameter">用户參數</param>
+        /// <param name="parameter">使用者參數</param>
         /// <returns></returns>
         [HttpPost]
         [Produces("application/json")]
@@ -204,13 +203,13 @@ namespace BlockAction.API.Controllers
             var targetUser = this._userService.Get(info.UserId);
             if (targetUser is null)
             {
-                throw new Exception("查无此用户.");
+                throw new Exception("查無此用戶.");
             }
 
             var isInsertSuccess = this._userService.InsertFundDetial(info);
             if (!isInsertSuccess)
             {
-                throw new Exception("新增用户资金明细失败.");
+                throw new Exception("新增用戶資金明細失敗.");
             }
             return GetResonseInfo("");
         }
@@ -218,16 +217,16 @@ namespace BlockAction.API.Controllers
         #endregion
 
         /// <summary>
-        /// 错误讯息测试
+        /// 錯誤訊息測試
         /// </summary>
-        /// <remarks>测试发生Exception后的回传讯息</remarks>
+        /// <remarks>測試發生Exception後的回傳訊息</remarks>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         [HttpGet]
         [Route("api/[controller]/Error")]
         public IActionResult GetError()
         {
-            throw new Exception("Exception in HomeController.");
+            throw new Exception("Exception in UserController.");
         }
     }
 }

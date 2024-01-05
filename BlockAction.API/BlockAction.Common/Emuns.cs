@@ -6,7 +6,7 @@ namespace BlockAction.Common
     {
 
         /// <summary>
-        /// 用户类型
+        /// 使用者類型
         /// </summary>
         public enum UserType
         {
@@ -16,29 +16,29 @@ namespace BlockAction.Common
             [Description("未知")]
             Unknown = 0,
             /// <summary>
-            /// 普通用户
+            /// 普通用戶
             /// </summary>
             [Description("正式")]
             OrdinaryUser = 10,
             /// <summary>
-            /// 销售人员
+            /// 銷售人員
             /// </summary>
-            [Description("销售人员")]
+            [Description("銷售人員")]
             SalerUser = 20,
             /// <summary>
-            /// 后台用户
+            /// 後台用戶
             /// </summary>
-            [Description("后台用户")]
+            [Description("後台使用者")]
             BackUser = 30,
             /// <summary>
-            /// 测试账号
+            /// 測試帳號
             /// </summary>
-            [Description("测试")]
+            [Description("測試")]
             TestAccount = 40,
             /// <summary>
-            /// 游客账号
+            /// 遊客帳號
             /// </summary>
-            [Description("游客账号")]
+            [Description("遊客帳號")]
             GuestUser = 50,
         }
 

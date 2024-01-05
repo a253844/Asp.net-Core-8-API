@@ -1,34 +1,33 @@
-﻿
-namespace BlockAction.API.Model
+﻿namespace BlockAction.API.Controllers
 {
     public class WebTool
     {
 
         /// <summary>
-        /// 服务端回复对象
+        /// 服務端回复對象
         /// </summary>
         public class ServerResponseInfo
         {
             /// <summary>
-            /// 回复结果
+            /// 回復結果
             /// </summary>
             public int code { get; set; } = 200;
             /// <summary>
-            /// 回复消息
+            /// 回覆訊息
             /// </summary>
             public string message { get; set; } = "";
             /// <summary>
-            /// 公共数据
+            /// 公共數據
             /// </summary>
             public string status { get; set; } = "ok";
             /// <summary>
-            /// 业务数据
+            /// 業務數據
             /// </summary>
             public object data { get; set; } = "";
         }
 
         /// <summary>
-        /// 获取回复对象
+        /// 取得回复對象
         /// </summary>
         public static ServerResponseInfo GetResonseInfo(object data, int code = 200, string message = "", string status = "ok")
         {

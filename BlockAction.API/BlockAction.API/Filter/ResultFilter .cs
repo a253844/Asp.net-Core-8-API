@@ -16,14 +16,14 @@ namespace BlockAction.API.Filter
         public void OnResultExecuting(ResultExecutingContext context)
         {
             //Result 執行前執行
-            _logger.LogInformation("進入 Result Filter。");
+            _logger.LogInformation("Result Filter Start。");
 
         }
 
         public void OnResultExecuted(ResultExecutedContext context)
         {
             //Result 執行後執行
-            _logger.LogInformation("離開 Result Filter。");
+            _logger.LogInformation("Result Filter End。");
 
         }
     }

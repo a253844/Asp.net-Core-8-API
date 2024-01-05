@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using static BlockAction.API.Model.WebTool;
+using static BlockAction.API.Controllers.WebTool;
 
 namespace BlockAction.API.Filter
 {
@@ -15,8 +15,9 @@ namespace BlockAction.API.Filter
 
         public void OnException(ExceptionContext context)
         {
-            _logger.LogInformation("進入 Exception Filter。");
+            _logger.LogInformation("Exception Filter Start。");
 
+            
             var error = new ServerResponseInfo()
             {
                 code = 404,
