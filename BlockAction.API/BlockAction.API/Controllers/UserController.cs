@@ -16,6 +16,7 @@ namespace BlockAction.API.Controllers
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [ApiController]
+    [Asp.Versioning.ApiVersion("1.0")]
     public class UserController : ControllerBase
     {
         private readonly IMapper _mapper;

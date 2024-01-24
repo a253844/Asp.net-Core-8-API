@@ -10,6 +10,11 @@ using Serilog.Events;
 using Serilog;
 using System.Reflection;
 using Serilog.Filters;
+using Asp.Versioning;
+using Microsoft.Extensions.Configuration;
+using System;
+using Microsoft.Extensions.Hosting;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,13 +51,40 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
         .WriteTo.File("logs/api-.log",
             rollingInterval: RollingInterval.Hour, // 每小時一個檔案
             retainedFileCountLimit: 24 * 30 // 最多保留 30 天份的 Log 檔案
-        )
+    )
     )
 );
 
 #endregion
 
+#region Console Declare
+
+ConfigurationManager configuration = builder.Configuration; // allows both to access and to set up the config
+IWebHostEnvironment environment = builder.Environment;
+Console.WriteLine($"Application Name: {environment.ApplicationName}");
+Console.WriteLine($"Environment Name: {environment.EnvironmentName}");
+Console.WriteLine($"ContentRoot Path: {environment.ContentRootPath}");
+Console.WriteLine($"WebRootPath: {environment.WebRootPath}");
+
+
+#endregion
+
+#region  Configuration
+
+var configRoot = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+    .Build();
+
+configuration.AddConfiguration(configRoot);
+
+#endregion
+
 #region Service
+
+builder.Services.AddSingleton<IConfigurationManager, ConfigurationManager>(e => configuration);
+builder.Services.AddSingleton<IWebHostEnvironment>(environment);
 
 builder.Services.AddScoped<IUserService, UserService>();
 
@@ -71,6 +103,19 @@ builder.Services.AddDbContext<DemodbContext>(sp =>
     sp.UseNpgsql(builder.Configuration.GetConnectionString("PGContext"));
 });
 
+// 啟用舊型的時間戳
+// 官方說明 https://www.npgsql.org/doc/types/datetime.html#timestamps-and-timezones
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+
+#endregion
+
+#region Redis
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(opt =>
+    ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("RedisConnection"))
+    );
+
 #endregion
 
 #region Filter
@@ -84,9 +129,23 @@ builder.Services.AddControllersWithViews(sp =>
 
 #endregion
 
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+}).AddApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
+
+builder.Services.AddHttpClient();
 builder.Services.AddControllers();
+builder.Services.AddMvc().AddControllersAsServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen( s =>
 {
     // API 服務簡介
@@ -111,6 +170,7 @@ builder.Services.AddSwaggerGen( s =>
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     s.IncludeXmlComments(xmlPath);
+    s.OperationFilter<AddHeaderParameter>();
 });
 
 var app = builder.Build();
