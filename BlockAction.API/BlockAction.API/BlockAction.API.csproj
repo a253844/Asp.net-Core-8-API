@@ -23,7 +23,7 @@
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.7.17" />
     <PackageReference Include="StackExchange.Redis.Extensions.AspNetCore" Version="10.1.0" />
-    <PackageReference Include="StackExchange.Redis.Extensions.System.Text.Json" Version="10.1.0" />
+    <PackageReference Include="StackExchange.Redis.Extensions.System.Text.Json" Version="10.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
